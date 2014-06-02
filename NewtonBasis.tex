@@ -40,14 +40,14 @@ According to the Schaback paper, there is another basis $\{v_1, \ldots, v_n\}$ w
 Thus, so $\vv(x) = \mM \vk(x)$ for some appropriate $\mM$ independent of $x$ but dependent on $\{x_1, \ldots, x_n\}$.
 If we have some values of the function, $u$, i.e., $\vu=(u(x_1), \ldots, u(x_n))^T$, then interpolation yields:
 \begin{gather*}
-\mK=(K(x_i,x_j))_{i,j=1}^n, \qquad \mV=(v_j(x_i))_{i,j=1}^n, \qquad \mV=\mK \mM \\
-u(x) =  \vk^T(x) \vc =  \vv^T(x) \vd, \qquad \vc=\mK^{-1} \vu, \qquad \vd=\mV^{-1} \vu = \mM^{-1} \vc,
+\mK=(K(x_i,x_j))_{i,j=1}^n, \qquad \mV=(v_j(x_i))_{i,j=1}^n, \qquad \mV=\mK \mM^T \\
+u(x) =  \vk^T(x) \vc =  \vv^T(x) \vd, \qquad \vc=\mK^{-1} \vu, \qquad \vd=\mV^{-1} \vu = \mM^{-T} \vc,
 \end{gather*}
 where $\mV$ is lower triangular.
 
 Now let $L$ be some known linear operator, e.g., a differential operator.  If you would like to construct $Lu(x)$, given the $u(x_i)$ values, then
 \begin{gather*}
-Lu(x) \approx L \tu(x) = \vl^T(x) \vc = \vl^T(x) \mK^{-1} \vu = \vl^T(x) \mM \mV^{-1} \vu = \vp^T(x) \mV^{-1} \vu,\\
+Lu(x) \approx L \tu(x) = \vl^T(x) \vc = \vl^T(x) \mK^{-1} \vu = \vl^T(x) \mM^T \mV^{-1} \vu = \vp^T(x) \mV^{-1} \vu,\\
  \vl(x):=(l_j)_{j=1}^n:=(L(K(\cdot,x_j)))_{j=1}^n, \qquad \vp(x):= (p_j)_{j=1}^n:=(L(v_j)(x))_{j=1}^n = \mM\vl(x).
 \end{gather*}
 So $\mV^{-1}\vu$ should be stable and easy to solve.
@@ -68,8 +68,8 @@ If we have to invert $\mL$, it may be bad.
 
 Alternatively, we can write this as as 
 \begin{gather*}
-\tu(x) =  \vv^T(x) \vd, \qquad \text{where }\mL \mM \vd = \mP \vd= \vf, \\
-\mL \mM = \mP:= (p_j(x_i))_{i,j=1}^n=(L(v_j)(x_i))_{i,j=1}^n,
+\tu(x) =  \vv^T(x) \vd, \qquad \text{where }\mL \mM^T \vd = \mP \vd= \vf, \\
+\mL \mM^T = \mP:= (p_j(x_i))_{i,j=1}^n=(L(v_j)(x_i))_{i,j=1}^n,
 \end{gather*}
 
 
